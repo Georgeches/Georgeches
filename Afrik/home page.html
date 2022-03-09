@@ -1,0 +1,391 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>interclub</title>
+    <link rel = "icon" type = "image/png" href = "logo01.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="{%static 'Afrik/home page.css' %}">
+  </head>
+
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light text-dark" id="navbar">
+      <a class="navbar-brand bg-primary text-light ml-2" style="border-radius: 2px;" href="#">interclub</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-dark" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto" style="position:relative; ">
+         
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="margin: 30px; margin-top: 10px;">
+                Sign up
+              </button>
+              <div class="dropdown-menu  bg-light" aria-labelledby="dropdownMenuButton">
+                <a class="nav-link text-dark bg-light" href="{% url 'register' %}" >club</a>
+                <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#student-sign-upModal"
+                  data-dismiss="#navbarNavDropdown" data-dismiss="#login-Modal">student</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'login' %}" ><button type="button" class="btn btn-info"  style="margin: 30px; margin-top: 10px;">log
+              in</button></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Container (About Section) -->
+    <div id="about" class="container-fluid">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2>i-club ?</h2><br>
+          <p class="tex-bold" id="about-content"><b>I-club &nbsp </b>is a website aimed at making clubs in schools more
+            active as well
+            as
+            very
+            beneficial both to the school and the students. It is a club-management platform as well as a vast
+            communication
+            platform where a club can be able to communicate to all clubs which have accounts in the website. We are
+            aimed
+            at
+            seeing club members contributing to host a competition, invest or even raise money to help the needy. We
+            believe that
+            the power of activity of clubs in schools can help make Kenya a better place, boost the skills and talents
+            of
+            students
+            and give them some experience before finishing school.<p>
+              <h4></h4>
+              <br>
+
+        </div>
+        <div class="col-sm-4">
+            
+        </div>
+        <button id="join-button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#sign-upModal"
+                  data-dismiss="#navbarNavDropdown">Join us</button>
+      </div>
+
+
+    </div>
+	
+	<div id="services" class="container-fluid text-center">
+  <h2>SERVICES</h2>
+  <h4>What we offer</h4>
+  <br>
+
+<section id="featured-services" class="featured-services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="material-icons" style="font-size: 50px;" >chat</i></div>
+              <h4 class="title"><a href="">chat wall</a></h4>
+              <p class="description">A chat wall for you to communicate online</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="material-icons" style="font-size: 50px;" >event</i></div>
+              <h4 class="title"><a href="">events invites</a></h4>
+              <p class="description">Send invites to other clubs instantly with ease</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="las la-users"></i></div>
+              <h4 class="title"><a href="">Interaction</a></h4>
+              <p class="description">share ideas to clubs countrywide ina click</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="las la-tasks"></i></div>
+              <h4 class="title"><a href="">Club management</a></h4>
+              <p class="description">Know your members and view your club's progress easily</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <br>
+    <br>
+
+    <div class="container bg-grey" style="margin-bottom: -400px; height: 980px; width: 95%; background: black;" id="vision">
+      <div class="row">
+       <img src="https://images.pexels.com/photos/1546901/pexels-photo-1546901.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" height="700" width="100%" style="margin-left: 20px;"/> 
+        <div class="col" style="position:relative; top: -550px; color: blue;">
+          <h2 style="">Our Values</h2><br>
+          <h4><strong>MISSION:</strong>
+            <p class="lead" style="">To see clubs making an positive impact in our society</p>
+          </h4><br>
+          <h4><strong>VISION: </strong>
+            <p class="lead">To make clubs in schools more active as well as very beneficial both to the school
+              and the
+              students</p>
+          </h4>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+
+
+
+    <!-- Container (Contact Section) -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up" style="background: white; margin-top: 50px;">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <h3><span>Contact Us</span></h3>
+          <p>Reach out to us now through:</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-5">
+            <div class="info-box mb-4">
+              <i class="las la-map-marker-alt"></i>
+              <h3>Our Address</h3>
+              <p>30100, Eldoret, NY 535022</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="las la-envelope"></i>
+              <h3>Email Us</h3>
+              <p>contact@example.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="las la-phone-volume"></i>
+              <h3>Call Us</h3>
+              <p>+1 5589 55488 55</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+        
+
+          <div class="col-lg-6" align="center">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+        
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="modal fade" id="login-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">log in</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">email:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">password:</label>
+                <input class="form-control" type="password" id="message-text"></textarea>
+              </div>
+              <button class="btn btn-info">log in</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="sign-upModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">log in</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="category" class="col-form-label">category:</label>
+                <input type="text" class="form-control" placeholder="enter category" id="category">
+              </div>
+              <div class="form-group">
+                <label for="school" class="col-form-label">school:</label>
+                <input type="text" class="form-control" placeholder="enter school" id="school">
+              </div>
+              <div class="form-group">
+                <label for="email" class="col-form-label">email:</label>
+                <input type="email" class="form-control" placeholder="enter email address" id="email">
+              </div>
+              <div class="form-group">
+                <label for="password" class="col-form-label">create password:</label>
+                <input type="password" class="form-control" placeholder="create a strong password" id="password">
+              </div>
+              <div class="form-group">
+                <label for="confirm" class="col-form-label">confirm password:</label>
+                <input type="password" class="form-control" placeholder="confirm password" id="confirm">
+              </div>
+              <button class="btn btn-primary">submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<div class="modal fade" id="student-sign-upModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">sign up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="first-name" class="col-form-label">firstname:</label>
+                <input type="text" class="form-control" placeholder="" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="second-name" class="col-form-label">second-name:</label>
+                <input type="text" class="form-control" placeholder="" id="second-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">email:</label>
+                <input type="email" class="form-control" placeholder="enter email address" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">create password:</label>
+                <input type="password" class="form-control" placeholder="create a strong password" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">confirm password:</label>
+                <input type="password" class="form-control" placeholder="confirm password" id="recipient-name">
+              </div>
+              <button class="btn btn-primary">submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="container-fluid text-center">
+
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 900, function () {
+
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+
+        $(window).scroll(function () {
+          $(".slideanim").each(function () {
+            var pos = $(this).offset().top;
+
+            var winTop = $(window).scrollTop();
+            if (pos < winTop + 600) {
+              $(this).addClass("slide");
+            }
+          });
+        });
+      })
+    </script>
+
+  </body>
+
+</html>

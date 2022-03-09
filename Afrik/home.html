@@ -1,0 +1,10 @@
+{%extends "Afrik/base.html"%}
+
+{% block content %}
+    {% for post in posts %}
+        <p>{{post.author}}</p>
+        <h1>{{post.title}}</h1>
+        <p>{{post.content}}</p>
+        <p>{{post.date}}</p>
+    {%  endfor %}
+{% endblock content %}

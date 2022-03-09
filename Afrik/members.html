@@ -1,0 +1,132 @@
+{%extends "Afrik/base.html"%}
+{% block content %}
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><i class="las la-piggy-bank" style="font-size: 50px;"></i><span
+                    style="font-size: 50px; overflow: hide;"></span><span>Account</span></h2>
+        </div>
+
+        <div class="sidebar-menu">
+            <ul>
+               <li>
+                    <a href="{% url 'dashboard' %}"><span class="las la-clipboard"></span><span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'members' %}"><span class="las la-user-circle"></span><span>Members</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'notifications' %}"><span
+                            class="fas fa-bell"></span><span>Notifications</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'posts' %}"><span class="las la-blog"></span><span>Posts</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h3>
+                <label for="nav-toggle">
+                    <span class="las la-bars" style="cursor: pointer;"></span>
+                </label>
+
+                <span id="page-name"><span class="las la-user-circle"></span>Members</span>
+            </h3>
+
+            <div class="search-wrapper">
+                <input type="search" placeholder="search">
+                <span class="las la-search"></span>
+            </div>
+
+            <div class="user-wrapper">
+                <div>
+                    <h5 style="font-weight: bold;">{{user.username}}</h5><br>
+
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="members">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card">
+                            <b style="font-size: 20px;">{{number}}&nbsp<span style="font-size: 20px;">Members</span></b>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                       {% for member in members %}
+                        <div class="member">
+                            <div class="info">
+
+                                <h5 style="font-family: arial;">{{member.member_name}}</h5> &nbsp &nbsp &nbsp
+                                <small style="font-family: arial;">{{member.post}}</small>
+                            </div>
+                            <div class="contact">
+                                <a href="#"><span class="las la-user-circle"></span></a>
+                                <a href="#"><span class="las la-comment"></span></a>
+                            </div>
+
+
+                        </div>
+                        {% endfor %}
+                </div>
+            </div>
+
+            <div class="modal fade" id="login-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">log in</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">password:</label>
+                                    <input class="form-control" type="password" id="message-text"></textarea>
+                                </div>
+                                <a href="profile.html"><button class="btn btn-primary">log in</button></a>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="comment-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">send message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <textarea class="form-control" id="comments" name="comments" placeholder="send message" rows="3"></textarea><br>
+                                <button class="btn btn-primary">send</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+{% endblock content %}

@@ -1,0 +1,277 @@
+{%extends "Afrik/base.html"%}
+
+{% block content %}
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <h2><i class="las la-piggy-bank" style="font-size: 50px;"></i><span
+                        style="font-size: 50px; overflow: hide;"></span><span>Account</span></h2>
+            </div>
+
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><span class="las la-clipboard"></span><span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="members.html"><span class="las la-user-circle"></span><span>Members</span></a>
+                    </li>
+                    <li>
+                        <a href="notifications.html"><span
+                                class="fas fa-bell"></span><span>Notifications</span></a>
+                    </li>
+                    <li>
+                        <a href="events.html" class="active"><span
+                                class="las la-calendar"></span><span>Events</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header>
+                <h3>
+                    <label for="nav-toggle">
+                        <span class="las la-bars" style="cursor: pointer;"></span>
+                    </label>
+
+                    <span id="page-name"><span class="fas fa-project-diagram"></span>Events</span>
+                </h3>
+
+                <div class="search-wrapper">
+                    <input type="search" placeholder="search events">
+                    <span class="las la-search"></span>
+                </div>
+
+                <div class="user-wrapper">
+                    <div>
+                        <h5 style="font-weight: bold;">club name</h5>
+                        <small style="font-size: 19px;">school</small>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="cards mb-3">
+                    <div class="card-single">
+                        <div>
+                            <h3>{{number}}</h3>
+                            <span>Total no. of events&nbsp </span>
+                        </div>
+                        <div>
+                            <span class="fas fa-tasks"></span>
+                        </div>
+                    </div>
+
+                    <div class="card-single">
+                        <div>
+                            <h3>5</h3>
+                            <span>Done this year&nbsp </span>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+
+                    <div class="card-single">
+                        <div>
+                            <h3>2</h3>
+                            <span>Done this term &nbsp </span>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h3>3</h3>
+                            <span>Hosted by you &nbsp </span>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div class="dropdown show" style="margin-left: 40px;">
+                <button class="btn btn-info dropdown-toggle" type="button" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">new
+                    event</button>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" style="margin: 10px;" href="#" data-toggle="modal" data-target="#internal-eventModal">your own internal event</a>
+                    <a class="dropdown-item" style="margin: 10px;" data-toggle="modal" data-target="#external-eventModal">host
+                        an event with other school</a>
+                </div>
+            </div>
+            <br>
+            <div class="content">
+                <div class="soon-header bg-info">
+                    <p>pending events</p>
+
+                </div>
+                <div class="soon-event">
+
+                    <div class="soon-body">
+                        {% for event in events %}
+                        <div class="event-body" data-autohide="false" data-toggle="modal" data-target="#eventModal">
+                            <h4>{{event.event_name}}</h4>
+                            <div class="date-host">
+                                <p>Date: &nbsp &nbsp {{event.date}}</p>
+                                <b>Host: &nbsp &nbsp {{event.host}}</b>
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="all-header  bg-info">
+                    <p>all events</p>
+                </div>
+                <div class="all-events">
+                    {% for event in events %}
+                    <div class="event-body" data-autohide="false" data-toggle="modal" data-target="#eventModal">
+                        <h4>{{event.event_name}}</h4>
+                        <div class="date-host">
+                            <p>Date: &nbsp &nbsp {{event.date}}</p>
+                            <b>Host:  &nbsp &nbsp {{event.host}}</b>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="modal fade" id="internal-eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">please fill the form</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="event-name" class="col-form-label">name of event:</label>
+                      <input type="text" class="form-control" placeholder="enter a name for your event" id="event-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="event-date" class="col-form-label">date:</label>
+                      <input type="date" class="form-control" placeholder="when is the event" id="event-date">
+                    </div>
+                    <div class="form-group">
+                      <label for="event-venue" class="col-form-label">venue:</label>
+                      <input type="text" class="form-control" placeholder="enter venue" id="event-venue">
+                    </div>
+                   
+                    <button class="btn btn-primary">submit</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="external-eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">please fill the form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="event-name" class="col-form-label">name of event:</label>
+                    <input type="text" class="form-control" placeholder="enter a name for your event" id="event-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="event-date" class="col-form-label">date:</label>
+                    <input type="date" class="form-control" placeholder="when is the event" id="event-date">
+                  </div>
+                  <div class="form-group">
+                    <label for="event-venue" class="col-form-label">venue:</label>
+                    <input type="text" class="form-control" placeholder="enter venue" id="event-venue">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="event-participants" class="col-form-label">maximum participants:</label>
+                    <input type="text" class="form-control" placeholder="max no. of participants from each school" id="event-venue">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="event-additional" class="col-form-label">additional information:</label>
+                    <textarea class="form-control" id="additional" placeholder="Any additional information" rows="4"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="event-venue" class="col-form-label">venue:</label>
+                    <input type="text" class="form-control" placeholder="enter venue" id="event-venue">
+                  </div>
+                 
+                  <button class="btn btn-primary">submit</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">name of event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4   style="font-size: 21px;">name: <p class="lead"  style="font-size: 18px;">name of event</p></h4>
+          <h4 style="font-size: 21px;">date: <p class="lead"  style="font-size: 18px;">date of event</p></h4>
+          <h4 style="font-size: 21px;">venue: <p class="lead"  style="font-size: 18px;">the venue</p></h4>
+          <h4 style="font-size: 21px;">additional information: <p class="lead" style="font-size: 18px;">the additional information</p></h4>
+          <h4 style="font-size: 21px;">amount contributed: <p class="lead"  style="font-size: 18px;">the amount contributed</p></h4>
+            <button class="btn btn-success" data-toggle="modal" data-target="#updateModal">update event</button>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">name of event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input class="form-control" id="name" name="name" placeholder="amount to be divided" type="number" required>
+            <br>
+            <br>
+        <button class="btn btn-success">continue</button>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+        </div>
+        </div>
+{% endblock content %}

@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="{%static 'Afrik/posts.css'%}">
+  <link rel="stylesheet" href="{%static 'Afrik/bootstrap.css'%}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<body style="
+    background-color: #eee;
+">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="content" class="content content-full-width">
+                <header>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-primary text-light">
+                        <a class="navbar-brand" href="#">Posts</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link text-success" href="#">Home <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-success" href="#">profile</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#">ICT</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#">photography</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#">scouting</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#">aviation</a>
+                                </li>
+
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search club/school"
+                                    aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
+                                </button>
+                            </form>
+                        </div>
+                    </nav>
+                </header>
+                <div class="panel" style="margin-left: 300px; margin-top: 20px;">
+            <form control>
+                <textarea placeholder="Whats in your mind today?" rows="2" class="form-control input-lg p-text-area" style="width: 60%;"></textarea>
+                <button class="btn btn-success pull-right" style="
+                    margin-right: 200px;
+                    position: relative;
+                    bottom: 50px;
+                ">Post</button>
+            </form>
+            <footer class="panel-footer">
+
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="#"><i class="fa fa-camera" style="font-size: 15px; color: #ff1500;"> &nbsp </i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class=" fa fa-film" style="font-size: 15px;">&nbsp </i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-microphone" style="font-size: 15px; color: green;"></i></a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+                <div class="profile-content">
+                <!-- begin tab-content -->
+                <div class="tab-content p-0">
+                    <!-- begin #profile-post tab -->
+                    <div class="tab-pane fade active show" id="profile-post">
+                        <!-- begin timeline -->
+                        <ul class="timeline">
+                            {% if number <= 0 %}
+                                <p>You Have no posts</p>
+                            {% else %}
+                            {% for post in posts %}
+                            <li>
+
+                                <!-- begin timeline-body -->
+                                <div class="timeline-body" id="text-post">
+                                    <div class="timeline-header">
+                                        <span class="userimage"><img src="" alt=""></span>
+                                        <span class="username"><a href="javascript:;">{{post.club}}</a>
+                                            <small>{{post.school}}</small></span>
+                                        <span class="pull-right text-muted">{{post.date}}</span>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <p>
+                                            {{post.content}}
+                                        </p>
+                                    </div>
+                                    <div class="timeline-likes">
+                                        <div class="stats">
+                                            <span class="fa-stack fa-fw stats-icon">
+                                                <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                                                <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                                            </span>
+                                            <span class="fa-stack fa-fw stats-icon">
+                                                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                                <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            <span class="stats-total">{{post.likes}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-footer">
+                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
+                                                class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i></a>
+                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
+                                                class="fa fa-comments fa-fw fa-lg m-r-3"></i> </a>
+                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
+                                                class="fa fa-share fa-fw fa-lg m-r-3"></i> </a>
+                                    </div>
+                                    <div class="timeline-comment-box">
+                                        <div class="user"><img src=""></div>
+                                        <div class="input">
+                                            <form action="">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control rounded-corner"
+                                                        placeholder="Write a comment...">
+                                                    <span class="input-group-btn p-l-10">
+                                                        <button
+                                                            class="btn btn-primary f-s-12 rounded-corner btn-sm h-10 w-10"
+                                                            type="button">Comment</button>
+                                                    </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end timeline-body -->
+                            </li>
+                            {% endfor %}
+                            {% endif %}
+                        </ul>
+                        <!-- end timeline -->
+                    </div>
+                    <!-- end #profile-post tab -->
+                </div>
+                <!-- end tab-content -->
+            </div>
+            <!-- end profile-content -->
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+{%extends "Afrik/base.html"%}
+{% block content %}
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><i class="las la-piggy-bank" style="font-size: 50px;"></i><span
+                    style="font-size: 50px; overflow: hide;"></span><span>Account</span></h2>
+        </div>
+
+        <div class="sidebar-menu">
+            <ul>
+               <li>
+                    <a href="{% url 'dashboard' %}"><span class="las la-clipboard"></span><span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'members' %}"><span class="las la-user-circle"></span><span>Members</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'notifications' %}"><span
+                            class="fas fa-bell"></span><span>Notifications</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'posts' %}"><span class="las la-blog"></span><span>Posts</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content" id="content-holder">
+        <header>
+            <h3>
+                <label for="nav-toggle">
+                    <span class="las la-bars" style="cursor: pointer;"></span>
+                </label>
+
+                <span id="page-name"><span class="fas fa-project-diagram"></span>Notifications</span>
+            </h3>
+
+
+            <div class="user-wrapper">
+                <div>
+                    <h5 style="font-weight: bold;">{{user.username}}</h5><br>
+
+                </div>
+            </div>
+        </header>
+        <main>
+
+            <div class="notifications-card">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="alert-wrapper">
+                            <span class="las la-bell" style="font-size: 30px; font-weight: bold;">
+                                <b>{{number}} notifications</b>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% for notification in notifications %}
+                        <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false"
+                            data-toggle="modal" data-target="#notificationModal">
+                            <div class="toast-header">
+
+                                <strong class="mr-auto">{{notification.sender}}</strong>
+                                <small> &nbsp {{notification.when}}</small>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="toast-body" data-toggle="modal" data-target="#notificationModal">
+                                <p>{{notification.content}}</p>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>{{notification.content}}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">decline</button>
+                                        <button type="button" class="btn btn-primary">accept</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+{% endblock content %}
