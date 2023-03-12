@@ -1,8 +1,8 @@
-- 👋 Hi, I’m @Georgeches
-- 👀 I’m interested in ...web dev 
-- 🌱 I’m currently learning ...python and django
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...chesire608@gmail.com
+- 👋 Hi, I’m George Chesire
+- 👀 I am a web developer
+- 🌱 Icode in HTML, CSS, Javascript, python, django
+- 💞️ Looking forward to upskilling myself
+- 📫 How to reach me ...chesire608@gmail.com, LinkedIn at https://www.linkedin.com/in/george-chesire-295346261/
 
 <!---
 Georgeches/Georgeches is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
